@@ -17,6 +17,7 @@ function btnMiner() {
         document.getElementById("addCoins").innerHTML = coin;
         document.getElementById("addMiner").innerHTML = miner;
         document.getElementById("minerCost").innerHTML = minerUpgrade;
+        coinsPerSecond();
     }
 }
 let digger = 0;
@@ -32,10 +33,17 @@ function btnDigger() {
         document.getElementById("addCoins").innerHTML = coin;
         document.getElementById("addDigger").innerHTML = digger;
         document.getElementById("diggerCost").innerHTML = diggerUpgrade;
+        coinsPerSecond();
     }
+}
+
+function coinsPerSecond() {
+    cps = miner * 1 + digger * 2;
+    document.getElementById("cps").innerHTML = cps;
 }
 
 setInterval(function () {
     coin = coin + miner * 1 + digger * 2;
     document.getElementById("addCoins").innerHTML = coin;
-}, 300);
+    coinsPerSecond();
+}, 1000);
